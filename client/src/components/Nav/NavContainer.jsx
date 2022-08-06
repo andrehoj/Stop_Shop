@@ -1,7 +1,8 @@
 import React from "react";
 import LargeNav from "./NavSizes/LargeNav";
 import SmallNav from "./NavSizes/SmallNav";
-import { BsCart3 } from "react-icons/bs";
+// import { BsCart3 } from "react-icons/bs";
+
 export default function NavContainer() {
   return (
     <div className="">
@@ -10,8 +11,13 @@ export default function NavContainer() {
         <LargeNav />
         <SmallNav />
       </nav>
+    </div>
+  );
+}
 
-      <div className="h-fit min-w-max bg-main_white pt-1 shadow-xl">
+//small nav markup
+
+/* <div className="h-fit min-w-max bg-main_white pt-1 shadow-xl">
         <ul className="flex-col justify-center">
           <li className="nav-link-styles text-center tracking-widest text-xl ">
             Products
@@ -30,7 +36,4 @@ export default function NavContainer() {
             Cart
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
+      </div> */

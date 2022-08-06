@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsCart3 } from "react-icons/bs";
 import Sidebar from "../SideBar/SideBar";
+import { Link } from "react-router-dom";
 
 export default function LargeNav() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -10,7 +11,10 @@ export default function LargeNav() {
       <ul className="flex gap-8">
         <li className="nav-link-styles">Products</li>
         <li className="nav-link-styles">About</li>
-        <li className="nav-link-styles">Account</li>
+
+        <li className="nav-link-styles">
+          <Link to="/signup">Account</Link>
+        </li>
       </ul>
 
       <div

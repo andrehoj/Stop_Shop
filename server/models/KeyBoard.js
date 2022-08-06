@@ -1,14 +1,14 @@
-const { Decimal128 } = require("mongodb");
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { Schema, model } = require("mongoose");
 
-const keyBoardSchema = new Schema({
+const keyboardSchema = new Schema({
   name: {
     type: String,
   },
   coverImage: {
     type: String,
   },
+  images: [{ type: String }],
+
   description: {
     type: String,
   },
@@ -19,9 +19,17 @@ const keyBoardSchema = new Schema({
     type: Number,
   },
   price: {
-    type: Decimal128,
+    type: Number,
     require: true,
+  },
+  wireless: {
+    type: Boolean,
+  },
+  inStock: {
+    type: Boolean,
   },
 });
 
-module.exports = keyBoardSchema;
+const Keyboard = model("Keyboard", keyboardSchema);
+
+module.exports = Keyboard;

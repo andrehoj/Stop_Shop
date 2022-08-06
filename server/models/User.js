@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const keyBoardSchema = require("./KeyBoard");
 
 const userSchema = new Schema({
   firstName: {
@@ -13,6 +12,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
     match: [/.+@.+\..+/, "Must match an email address!"],
   },
   password: {
@@ -23,7 +23,6 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
-  favouriteKeyBoards: [keyBoardSchema],
 });
 
 const User = model("User", userSchema);
