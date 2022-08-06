@@ -24,6 +24,8 @@ module.exports = {
       main_teal: "#e8e076",
       light_grey: "#6b6b6b",
       main_white: "#FFFFFF",
+      success: "#22c55e",
+      danger: "#b91c1c"
     },
   },
   plugins: [require("tw-elements/dist/plugin")],

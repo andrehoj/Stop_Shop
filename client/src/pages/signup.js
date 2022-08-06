@@ -4,17 +4,18 @@ import { Link } from "react-router-dom";
 export default function Signup() {
   console.log("rendered");
   return (
-    <section className="h-screen">
-      <div className="container px-6 py-12 h-full">
-        <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
-          <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-              className="w-full"
-              alt="Phone image"
-            />
-          </div>
-          <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
+    <section className="h-screen flex">
+      <div className="w-100% h-auto">
+        <img
+          src="/images/log-in-image.avif"
+          className="w-full h-full brightness-50"
+          alt="Phone image"
+        />
+      </div>
+
+      <div className="container h-full ml-20">
+        <div className="flex items-center justify-center flex-wrap  g-6 ">
+          <div className="">
             <h3 className="text-main_teal mb-10 text-3xl">Sign up</h3>
             <form>
               <div className="mb-6">
