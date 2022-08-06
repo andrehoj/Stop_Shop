@@ -1,5 +1,8 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/tw-elements/dist/js/**/*.js",
+  ],
   theme: {
     screens: {
       sm: "500px",
@@ -19,9 +22,9 @@ module.exports = {
       primary_black: "#222831",
       light_black: "#393E46",
       main_teal: "#e8e076",
-      light_grey: "#EEEEEE",
+      light_grey: "#6b6b6b",
       main_white: "#FFFFFF",
     },
   },
-  plugins: [],
+  plugins: [require("tw-elements/dist/plugin")],
 };
