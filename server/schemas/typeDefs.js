@@ -25,7 +25,7 @@ const typeDefs = gql`
 
   type Query {
     User(email: String): [User]
-    Keyboard(name: String): [Keyboard]
+    Keyboard(name: String, brand: String): [Keyboard]
   }
 `;
 
