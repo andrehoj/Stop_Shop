@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Signup() {
-  console.log("rendered");
+ 
   return (
     <section className="h-screen flex">
       <div className="w-100% h-auto">
         <img
           src="/images/log-in-image.avif"
           className="w-full h-full brightness-50"
-          alt="Phone image"
+          alt="Phone"
         />
       </div>
 

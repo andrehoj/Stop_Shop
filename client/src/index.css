@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    @apply m-0 p-0 box-border;
+  }
+
   .nav-text {
     @apply font-main_font text-light_black tracking-widest text-xl;
   }
@@ -16,8 +20,9 @@
   }
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.landing_div {
+  height: 1000px;
+  background-image: url("../public/images/landing-image.avif");
+  background-position: center;
+  margin-bottom: 50px;
 }

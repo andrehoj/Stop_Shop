@@ -8,7 +8,6 @@ const keyboardSchema = new Schema({
     type: String,
   },
   images: [{ type: String }],
-
   description: {
     type: String,
   },

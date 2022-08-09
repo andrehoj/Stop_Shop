@@ -7,6 +7,7 @@ const { Provider } = StoreContext;
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
     cart: [],
+    sortByBrand: "Any",
   });
 
   //we return this component that has our global state and our "setState" or dispatch function and props
