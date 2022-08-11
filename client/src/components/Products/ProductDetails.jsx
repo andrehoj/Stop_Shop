@@ -39,7 +39,7 @@ export default function ProductDetails() {
 
   const { id } = useParams();
 
-  const { loading, error, data } = useQuery(GET_PRODUCT, {
+  const { loading, data } = useQuery(GET_PRODUCT, {
     variables: { _id: id },
   });
 
@@ -64,17 +64,19 @@ export default function ProductDetails() {
   return (
     <div className="">
       <NavContainer />
-      <div className="grid grid-cols-1 lg:grid-cols-2 justify-center space-x-8 lg:mr-32">
-        <Carousel>
-          <div>
-            <img src={`/images/${product.coverImage}`} />
-          </div>
-          {product.images?.map((image, i) => (
-            <div key={i}>
-              <img src={`/images/${image}`} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 justify-center space-x-5 lg:mr-32 mt-10 lg:ml-2 mx-10">
+       
+          <Carousel renderIndicator={false}>
+            <div>
+              <img src={`/images/${product.coverImage}`} />
             </div>
-          ))}
-        </Carousel>
+            {product.images?.map((image, i) => (
+              <div key={i}>
+                <img src={`/images/${image}`} alt="cover of Keyboard" />
+              </div>
+            ))}
+          </Carousel>
+      
 
         <div className="flex-col space-y-5 w-96 mb-28 lg:mb-0 ">
           <div className="flex-col space-y-1">
@@ -131,7 +133,6 @@ export default function ProductDetails() {
 
               <Accordion.Panel>
                 <Accordion.Title style={{ marginTop: "10px", padding: 0 }}>
-                  {" "}
                   <GiSpectacles style={{ display: "inline" }} />
                   Specs
                 </Accordion.Title>
@@ -141,7 +142,6 @@ export default function ProductDetails() {
               </Accordion.Panel>
               <Accordion.Panel>
                 <Accordion.Title style={{ marginTop: "10px", padding: 0 }}>
-                  {" "}
                   <AiOutlineSafety style={{ display: "inline" }} />
                   Warrenty
                 </Accordion.Title>
@@ -151,53 +151,6 @@ export default function ProductDetails() {
               </Accordion.Panel>
             </Accordion>
           </div>
-
-          {/* <div className="accordion" id="accordionExample">
-          <div className="accordion-item ">
-            <h2
-              className="accordion-header mb-0 border-b-light_black"
-              id="headingOne"
-            >
-              <button
-                className="
-                  accordion-button
-                  relative
-                  flex
-                  items-center
-                  w-full
-                  py-4
-                  px-5
-                  text-base text-gray-800 text-left
-                  bg-white
-                  rounded-none
-                  transition
-                  focus:outline-none
-                "
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                Additional information:
-              </button>
-            </h2>
-            <div
-              id="collapseOne"
-              className="accordion-collapse collapse show"
-              aria-labelledby="headingOne"
-              data-bs-parent="#accordionExample"
-            >
-              <div className="accordion-body py-4 px-5">
-                <strong>Description: </strong> Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Fugiat obcaecati aliquam illo
-                optio ratione minus. Maiores officiis voluptatum eos, saepe sit
-                aliquid cupiditate necessitatibus fugiat explicabo at in minima
-                itaque.
-              </div>
-            </div>
-          </div>
-        </div> */}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { SORT_PRODUCTS } from "../../utils/actions";
 import { useStoreContext } from "../../utils/globalstate";
 const options = ["Any", "Logitech", "Keychron", "Corsair"];
@@ -15,7 +15,7 @@ export default function SortProducts() {
   };
 
   return (
-    <form className="border-b border-main_teal">
+    <form className=" border-b border-main_teal">
       <div className="flex flex-col items-center mb-2">
         <label htmlFor="Brand text-left" className="">
           Brand

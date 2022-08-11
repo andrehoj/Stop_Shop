@@ -2,26 +2,37 @@ import React from "react";
 import { BsCart3 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../../utils/globalstate";
+import Auth from "../../utils/auth";
 
 export default function NavLinks() {
-  const [state, dispatch] = useStoreContext();
-
-  const { cart } = state;
-
+  const [{ cart }] = useStoreContext();
+  console.log(Auth.loggedIn());
   return (
     <ul className="h-full items-center flex gap-8">
-      <Link to="/">
-        {" "}
-        <li className="nav-link-styles">Products</li>
-      </Link>
-      <Link to="/">
-        {" "}
-        <li className="nav-link-styles">About</li>
+      <Link to="/home">
+        <li className="nav-link-styles">Home</li>
       </Link>
 
-      <li className="nav-link-styles">
-        <Link to="/signup">Account</Link>
-      </li>
+      <Link to="/products">
+        <li className="nav-link-styles">Products</li>
+      </Link>
+      {Auth.loggedIn() ? (
+        <li className="nav-link-styles" onClick={Auth.logout()}>
+          Account
+        </li>
+      ) : (
+        <li>
+          <Link to="/Registration/login" className="nav-link-styles">
+            Login
+          </Link>
+
+          <Link to="/Registration/signup">
+            <button class=" ml-3 bg-transparent font-semibold text-main_teal hover:bg-main_teal hover:text-main_white py-1.5 px-3.5 border border-main_teal hover:border-transparent rounded nav-link-styles">
+              Signup
+            </button>
+          </Link>
+        </li>
+      )}
 
       <li className="h-full">
         <Link to="/cart">

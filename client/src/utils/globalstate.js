@@ -10,7 +10,7 @@ const StoreProvider = ({ value = [], ...props }) => {
     sortByBrand: "Any",
   });
 
-  //we return this component that has our global state and our "setState" or dispatch function and props
+  // return this component that has our global state and our "setState" or dispatch function and props
   return <Provider value={[state, dispatch]} {...props} />;
 };
 

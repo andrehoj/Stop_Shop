@@ -13,33 +13,32 @@ export default function ProductContainer() {
     variables: { brand: state.sortByBrand },
   });
 
-  if (loading)
-    return (
-      <div className="flex justify-center items-center">
-        <BarLoader
-          className="m-0"
-          loading={true}
-          color={"#e8e076"}
-          height={20}
-          width={300}
-        />
-      </div>
-    );
-  if (error) return;
-console.log(data)
   return (
     <div className="">
-      <h3 className="text-center mb-10 text-main_teal text-5xl tracking-widest ">
+      <h3 className="text-center my-10 text-main_teal text-5xl tracking-widest ">
         Products
       </h3>
-      <div className="flex-col space-y-20">
+      <div className="flex-col space-y-20 ">
         <SortProducts />
-        <div className="max-w-5xl grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1  m-auto gap-24">
-          {data.Keyboard.map((product, i) => (
-            <ProductItem product={product} key={i} />
-          ))}
         </div>
-      </div>
+        {loading ? (
+          <div className="flex h-48 w-full justify-center items-center">
+            <BarLoader
+              className="m-0"
+              loading={true}
+              color={"#e8e076"}
+              height={20}
+              width={325}
+            />
+          </div>
+        ) : (
+          <div className="max-w-5xl grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 m-auto gap-24 my-20">
+            {data.Keyboard.map((product, i) => (
+              <ProductItem product={product} key={i} />
+            ))}
+          </div>
+        )}
+      
     </div>
   );
 }

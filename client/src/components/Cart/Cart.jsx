@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 
 export default function Cart() {
-  const [state, dispatch] = useStoreContext();
+  const [state] = useStoreContext();
 
   const { cart: products } = state;
 
@@ -17,7 +17,6 @@ export default function Cart() {
     return sum.toFixed(2);
   }
 
-  console.log(products);
   return (
     <div className="">
       <NavContainer />
@@ -36,7 +35,7 @@ export default function Cart() {
                   Your shopping cart is empty
                 </h3>
                 <Link
-                  to="/"
+                  to="/products"
                   className="underline text-main_teal hover:no-underline"
                 >
                   Search for some keys

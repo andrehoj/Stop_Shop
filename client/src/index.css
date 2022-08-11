@@ -12,17 +12,25 @@
   }
 
   .logo-text {
-    @apply text-3xl  sm:text-4xl font-extrabold text-main_teal drop-shadow-lg;
+    @apply text-3xl sm:text-4xl font-extrabold text-main_teal drop-shadow-lg;
   }
 
   .nav-link-styles {
-    @apply hover:text-main_teal cursor-pointer duration-300 ease-in-out;
+    @apply hover:text-main_teal cursor-pointer duration-300 ease-in-out text-base;
   }
 }
 
-.landing_div {
-  height: 1000px;
-  background-image: url("../public/images/landing-image.avif");
-  background-position: center;
-  margin-bottom: 50px;
+.login-img {
+  height: 100%;
+  width: 35%;
+  background: url("../../client/public/images/log-in-image.avif") 50% no-repeat;
+  background-size: cover;
+  background-position: center 30%;
+}
+
+.landing_background {
+  height: auto;
+  width: 100%;
+  background: url("../../client/public/images/true-image.jpg");
+  background-size: cover;
 }

@@ -23,9 +23,32 @@ const typeDefs = gql`
     inStock: Boolean
   }
 
+  type User {
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
+  }
+
+  type Auth {
+    token: ID
+    user: User
+  }
+
   type Query {
     User(email: String): [User]
     Keyboard(_id: ID, brand: String): [Keyboard]
+  }
+
+  type Mutation {
+    addUser(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+    ): Auth
+
+    login(email: String!, password: String!): Auth
   }
 `;
 
