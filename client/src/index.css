@@ -34,3 +34,40 @@
   background: url("../../client/public/images/true-image.jpg");
   background-size: cover;
 }
+
+.custom_shadow {
+  box-shadow: 25px 25px #e8e076;
+}
+
+.scroll_down_arrow {
+  position: relative;
+  bottom: -300px;
+  right: -200px;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.custom-img {
+  height: 100px;
+}
+
+.custom-border::after {
+  position: relative;
+  content: " ";
+  margin-top: 4px;
+  display: block;
+  height: 7px;
+  border-radius: 5px;
+  width: 175px;
+  background-color: #e8e076;
+}

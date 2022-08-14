@@ -6,9 +6,8 @@ import Login from "../components/Login";
 
 export default function Registration() {
   const { type } = useParams();
-  console.log(type);
   return (
-    <section className="h-screen flex justify-center lg:justify-start lg:space-x-20 ">
+    <section className="h-screen flex justify-center lg:justify-start lg:space-x-20">
       <div className=" hidden lg:block login-img"></div>
 
       <div className="mt-5">

@@ -16,6 +16,7 @@ export default function App() {
         <Route path="/Registration/:type" element={<Registration />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/products/ProductDetails/:id" element={<ProductDetails />} />
+        <Route path="/home/ProductDetails/:id" element={<ProductDetails />} />
       </Routes>
     </StoreProvider>
   );

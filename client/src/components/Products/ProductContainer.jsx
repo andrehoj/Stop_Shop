@@ -15,7 +15,7 @@ export default function ProductContainer() {
 
   return (
     <div className="">
-      <h3 className="text-center my-10 text-main_teal text-5xl tracking-widest ">
+      <h3 className="text-center my-10 text-main_teal font-extrabold text-5xl tracking-widest ">
         Products
       </h3>
       <div className="flex-col space-y-20 ">

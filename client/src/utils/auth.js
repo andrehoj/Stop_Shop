@@ -22,17 +22,17 @@ class AuthService {
   }
 
   getToken() {
-    return window.localStorage.getItem("Id_Token");
+    return window.localStorage.getItem("user_token");
   }
 
   login(idToken) {
-    window.localStorage.setItem("Id_Token", idToken);
-
+    window.localStorage.setItem("user_token", idToken);
+    console.log(localStorage.getItem("user_token"));
     window.location.assign("/home");
   }
 
   logout() {
-    window.localStorage.removeItem("Id_Token");
+    window.localStorage.removeItem("user_token");
 
     window.location.assign("/");
   }

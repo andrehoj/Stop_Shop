@@ -17,8 +17,8 @@ export default function NavLinks() {
         <li className="nav-link-styles">Products</li>
       </Link>
       {Auth.loggedIn() ? (
-        <li className="nav-link-styles" onClick={Auth.logout()}>
-          Account
+        <li className="nav-link-styles" onClick={Auth.logout}>
+        Logout
         </li>
       ) : (
         <li>
@@ -41,7 +41,7 @@ export default function NavLinks() {
               <BsCart3 size={24} className="mr-1 " />
               Cart
               {cart.length ? (
-                <div className="  px-2 py-1 ml-2 text-center rounded-3xl text-xs text-main_white bg-primary_black">
+                <div className="  px-2 py-1 ml-2 text-center rounded-3xl text-xs text-main_white bg-primary_black ">
                   {cart.length}
                 </div>
               ) : null}

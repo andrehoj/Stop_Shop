@@ -18,8 +18,14 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, args, context, info) => {
+      const userEmail = await User.find({ email: args.email });
+      console.log(userEmail);
+      if (userEmail.length) throw new AuthenticationError("Email is taken");
+
       const user = await User.create(args);
+
       console.log(user);
+
       const token = signToken(user);
 
       return { token, user };

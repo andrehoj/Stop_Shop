@@ -23,6 +23,7 @@ module.exports = {
       light_black: "#393E46",
       main_teal: "#e8e076",
       light_grey: "#6b6b6b",
+      lightest_grey: "#e0e0e0",
       main_white: "#FFFFFF",
       success: "#5cb85c",
       danger: "#b91c1c",

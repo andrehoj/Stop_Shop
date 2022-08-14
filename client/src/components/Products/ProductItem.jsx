@@ -8,24 +8,26 @@ export default function ProductItem({ product }) {
 
   const { cart } = state;
 
-  function handleAddCart() {
-    if (!product.inStock) return;
+  // function handleAddCart() {
+  //   if (!product.inStock) return;
 
-    const productItem = cart.find((item) => item._id === product._id);
+  //   const productItem = cart.find((item) => item._id === product._id);
 
-    if (productItem) {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: productItem._id,
-        purchaseQuantity: parseInt(productItem.purchaseQuantity) + 1,
-      });
-    } else {
-      dispatch({
-        type: ADD_TO_CART,
-        cart: { purchaseQuantity: 1, ...product },
-      });
-    }
-  }
+  //   if (productItem) {
+  //     dispatch({
+  //       type: UPDATE_CART_QUANTITY,
+  //       _id: productItem._id,
+  //       purchaseQuantity: parseInt(productItem.purchaseQuantity) + 1,
+  //     });
+  //   } else {
+  //     dispatch({
+  //       type: ADD_TO_CART,
+  //       cart: { purchaseQuantity: 1, ...product },
+  //     });
+  //   }
+  // }
+
+  console.log(product);
 
   return (
     <div className="flex-col justify-center items-center text-center h-fit">
@@ -47,16 +49,6 @@ export default function ProductItem({ product }) {
           <span className="text-danger">Out of stock</span>
         )}
       </p>
-      <button
-        onClick={handleAddCart}
-        className={`${
-          product.inStock
-            ? " bg-transparent hover:bg-main_teal text-main_teal font-semibold hover:text-main_white py-2 px-12 border border-main_teal hover:border-transparent duration-200 "
-            : " py-2 px-12 border border-main_teal  bg-transparent text-main_teal font-semibold opacity-75 cursor-not-allowed line-through disabled"
-        }  mt-2`}
-      >
-        Add to cart
-      </button>
     </div>
   );
 }

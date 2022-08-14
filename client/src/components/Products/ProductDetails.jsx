@@ -65,18 +65,16 @@ export default function ProductDetails() {
     <div className="">
       <NavContainer />
       <div className="grid grid-cols-1 lg:grid-cols-2 justify-center space-x-5 lg:mr-32 mt-10 lg:ml-2 mx-10">
-       
-          <Carousel renderIndicator={false}>
-            <div>
-              <img src={`/images/${product.coverImage}`} />
+        <Carousel renderIndicator={false}>
+          <div>
+            <img src={`/images/${product.coverImage}`} />
+          </div>
+          {product.images?.map((image, i) => (
+            <div key={i}>
+              <img src={`/images/${image}`} alt="cover of Keyboard" />
             </div>
-            {product.images?.map((image, i) => (
-              <div key={i}>
-                <img src={`/images/${image}`} alt="cover of Keyboard" />
-              </div>
-            ))}
-          </Carousel>
-      
+          ))}
+        </Carousel>
 
         <div className="flex-col space-y-5 w-96 mb-28 lg:mb-0 ">
           <div className="flex-col space-y-1">
@@ -152,6 +150,7 @@ export default function ProductDetails() {
             </Accordion>
           </div>
         </div>
+       
       </div>
     </div>
   );
