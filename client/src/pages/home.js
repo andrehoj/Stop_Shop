@@ -11,9 +11,10 @@ export default function Home() {
     <>
       <NavContainer />
       <Hero />
+      <About />
       <SectionTwo />
-      {/* <About />
-      <SectionOne />
+
+      {/* <SectionOne />
       <SectionThree /> */}
     </>
   );
