@@ -33,7 +33,7 @@ export default function CartItem({ item }) {
     <div className="flex flex-wrap mt-3 pb-3 border-b">
       <div className="">
         <img
-          src={`/images/${item.coverImage}`}
+          src={`${item.image}`}
           alt="product cover"
           className="min-h-20 w-36"
         />

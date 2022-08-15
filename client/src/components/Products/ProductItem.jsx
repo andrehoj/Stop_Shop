@@ -27,23 +27,21 @@ export default function ProductItem({ product }) {
   //   }
   // }
 
-  console.log(product);
-
   return (
-    <div className="flex-col justify-center items-center text-center h-fit">
+    <div className="flex-col justify-center items-center h-fit">
       <Link to={`ProductDetails/${product._id}`}>
         <img
-          className="cursor-pointer hover:scale-110"
-          src={`images/${product.coverImage}`}
+          className="cursor-pointer h-60"
+          src={`${product.image}`}
           alt="product cover"
         />
         <h4 className="cursor-pointer inline hover:underline">
-          {product.name}
+          {product.title}
         </h4>
       </Link>
       <p>${product.price}</p>
       <p>
-        {product.inStock ? (
+        {true ? (
           <span className="text-success">In stock</span>
         ) : (
           <span className="text-danger">Out of stock</span>

@@ -30,7 +30,7 @@ export default function Login() {
   }
 
   return (
-    <div className="">
+    <>
       <h3 className="text-main_teal mb-10 text-4xl">Login</h3>
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
@@ -71,6 +71,6 @@ export default function Login() {
           Log in
         </button>
       </form>
-    </div>
+    </>
   );
 }

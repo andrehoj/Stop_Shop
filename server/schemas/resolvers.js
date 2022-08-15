@@ -1,4 +1,4 @@
-const { User, Keyboard } = require("../models");
+const { User, Product } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -7,12 +7,13 @@ const resolvers = {
     User: async (parent, args, context, info) => {
       return User.find({});
     },
-    Keyboard: async (parent, args, context, info) => {
-      if (args._id) return Keyboard.find({ _id: args._id });
 
-      if (args.brand === "Any" || !args.brand) return Keyboard.find({});
-
-      if (args.brand) return Keyboard.find({ brand: args.brand });
+    Product: async (parent, args, context, info) => {
+      console.log(args);
+      if (args._id) return Product.find({ _id: args._id });
+      if (args.category && args.category !== "Any")
+        return Product.find({ category: args.category });
+      return Product.find({});
     },
   },
 
@@ -24,12 +25,11 @@ const resolvers = {
 
       const user = await User.create(args);
 
-      console.log(user);
-
       const token = signToken(user);
 
       return { token, user };
     },
+
     login: async (parent, { email, password }, context, info) => {
       const user = User.find({ email });
 

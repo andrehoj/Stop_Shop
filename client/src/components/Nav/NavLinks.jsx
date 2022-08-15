@@ -6,7 +6,7 @@ import Auth from "../../utils/auth";
 
 export default function NavLinks() {
   const [{ cart }] = useStoreContext();
-  console.log(Auth.loggedIn());
+
   return (
     <ul className="h-full items-center flex gap-8">
       <Link to="/home">
@@ -18,7 +18,7 @@ export default function NavLinks() {
       </Link>
       {Auth.loggedIn() ? (
         <li className="nav-link-styles" onClick={Auth.logout}>
-        Logout
+          Logout
         </li>
       ) : (
         <li>

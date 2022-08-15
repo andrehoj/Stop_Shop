@@ -7,20 +7,22 @@ const typeDefs = gql`
     lastName: String
     email: String
     password: String
-    favoriteKeyBoards: [String]
+    favoriteProducts: [String]
   }
 
-  type Keyboard {
+  type Ratings {
+    rate: String
+    count: String
+  }
+
+  type Product {
     _id: ID
-    name: String
-    coverImage: String
-    images: [String]
+    title: String
+    image: String
     description: String
-    brand: String
-    review: Int
-    price: Float
-    wireless: Boolean
-    inStock: Boolean
+    category: String
+    price: String
+    rating: Ratings
   }
 
   type User {
@@ -37,7 +39,7 @@ const typeDefs = gql`
 
   type Query {
     User(email: String): [User]
-    Keyboard(_id: ID, brand: String): [Keyboard]
+    Product(_id: ID, category: String): [Product]
   }
 
   type Mutation {

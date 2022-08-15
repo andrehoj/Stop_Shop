@@ -19,7 +19,7 @@ export default function ProductDetails() {
   const { cart } = state;
 
   function handleAddCart() {
-    if (!product.inStock) return;
+    // if (!product.inStock) return;
 
     const productItem = cart.find((item) => item._id === product._id);
 
@@ -45,7 +45,7 @@ export default function ProductDetails() {
 
   if (loading)
     return (
-      <div className="">
+      <>
         <NavContainer />
         <div className="flex justify-center items-center mt-44 mx-auto">
           <BarLoader
@@ -56,35 +56,35 @@ export default function ProductDetails() {
             width={300}
           />
         </div>{" "}
-      </div>
+      </>
     );
 
-  const product = data.Keyboard[0];
+  const product = data.Product[0];
 
   return (
-    <div className="">
+    <>
       <NavContainer />
       <div className="grid grid-cols-1 lg:grid-cols-2 justify-center space-x-5 lg:mr-32 mt-10 lg:ml-2 mx-10">
-        <Carousel renderIndicator={false}>
-          <div>
-            <img src={`/images/${product.coverImage}`} />
-          </div>
-          {product.images?.map((image, i) => (
+        {/* <Carousel renderIndicator={false}> */}
+        <div>
+          <img src={`${product.image}`} />
+        </div>
+        {/* {product.images?.map((image, i) => (
             <div key={i}>
               <img src={`/images/${image}`} alt="cover of Keyboard" />
             </div>
-          ))}
-        </Carousel>
+          ))} */}
+        {/* </Carousel> */}
 
         <div className="flex-col space-y-5 w-96 mb-28 lg:mb-0 ">
           <div className="flex-col space-y-1">
             <h6>{product.brand}</h6>
-            <h4 className="text-xl">{product.name}</h4>
+            <h4 className="text-xl">{product.title}</h4>
             <p className="font-semibold text-lg">${product.price}</p>
           </div>
           <p>{product.description}</p>
           <div className="flex items-center">
-            {[...Array(product.review)].map((item, i) => (
+            {[...Array(parseInt(product.rating.rate))].map((item, i) => (
               <svg
                 key={i}
                 aria-hidden="true"
@@ -108,7 +108,7 @@ export default function ProductDetails() {
             <button
               onClick={handleAddCart}
               className={`${
-                product.inStock
+                product
                   ? " bg-transparent hover:bg-main_teal text-main_teal font-semibold hover:text-main_white py-2 px-12 border border-main_teal hover:border-transparent duration-200 "
                   : " py-2 px-12 border border-main_teal  bg-transparent text-main_teal font-semibold opacity-75 cursor-not-allowed line-through disabled "
               } `}
@@ -150,8 +150,7 @@ export default function ProductDetails() {
             </Accordion>
           </div>
         </div>
-       
       </div>
-    </div>
+    </>
   );
 }

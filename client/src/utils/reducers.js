@@ -39,7 +39,7 @@ export function reducer(state, action) {
     case SORT_PRODUCTS:
       return {
         ...state,
-        sortByBrand: action.sortByBrand,
+        sortByCategory: action.sortByCategory,
       };
     default:
       return state;

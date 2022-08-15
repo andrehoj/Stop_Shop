@@ -1,7 +1,13 @@
 import React from "react";
 import { SORT_PRODUCTS } from "../../utils/actions";
 import { useStoreContext } from "../../utils/globalstate";
-const options = ["Any", "Logitech", "Keychron", "Corsair"];
+const options = [
+  "Any",
+  "men's clothing",
+  "jewelery",
+  "electronics",
+  "women's clothing",
+];
 
 export default function SortProducts() {
   const [state, dispatch] = useStoreContext();
@@ -10,7 +16,7 @@ export default function SortProducts() {
     dispatch({
       type: SORT_PRODUCTS,
       cart: { ...state },
-      sortByBrand: event.target.value,
+      sortByCategory: event.target.value,
     });
   };
 
@@ -18,11 +24,11 @@ export default function SortProducts() {
     <form className=" border-b border-main_teal">
       <div className="flex flex-col items-center mb-2">
         <label htmlFor="Brand text-left" className="">
-          Brand
+          Category
         </label>
         <select
           onChange={handleChange}
-          value={state.sortByBrand}
+          value={state.sortByCategory}
           id="underline_select"
           className="w-36 text-center py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
         >

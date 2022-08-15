@@ -68,6 +68,10 @@
   display: block;
   height: 7px;
   border-radius: 5px;
-  width: 175px;
+  width: 275px;
   background-color: #e8e076;
+}
+
+.title-text {
+  font-size: 5vw;
 }

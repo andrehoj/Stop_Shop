@@ -36,7 +36,7 @@ export default function Signup() {
   }
 
   return (
-    <div className="">
+    <>
       <h3 className="text-main_teal mb-10 text-4xl">Sign up</h3>
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
@@ -97,6 +97,6 @@ export default function Signup() {
           Sign in
         </button>
       </form>
-    </div>
+    </>
   );
 }

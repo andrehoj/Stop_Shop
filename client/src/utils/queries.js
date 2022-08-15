@@ -1,30 +1,31 @@
 import { gql } from "@apollo/client";
 
 export const GET_PRODUCTS = gql`
-  query Keyboard {
-    Keyboard {
+  query Product {
+    Product {
       _id
-      name
-      coverImage
+      title
+      image
+      description
+      category
       price
-      inStock
     }
   }
 `;
 
 export const GET_PRODUCT = gql`
-  query Keyboard($_id: ID, $brand: String) {
-    Keyboard(_id: $_id, brand: $brand) {
+  query Product($_id: ID, $category: String) {
+    Product(_id: $_id, category: $category) {
       _id
-      name
-      coverImage
-      images
-      price
+      title
+      image
       description
-      brand
-      review
-      wireless
-      inStock
+      category
+      price
+      rating{
+        count 
+        rate
+      }
     }
   }
 `;

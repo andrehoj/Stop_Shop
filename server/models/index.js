@@ -1,4 +1,4 @@
 const User = require("./User");
-const Keyboard = require("./KeyBoard");
+const Product = require("./Product");
 
-module.exports = { User, Keyboard };
+module.exports = { User, Product };
