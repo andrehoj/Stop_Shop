@@ -14,16 +14,16 @@ export const GET_PRODUCTS = gql`
 `;
 
 export const GET_PRODUCT = gql`
-  query Product($_id: ID, $category: String) {
-    Product(_id: $_id, category: $category) {
+  query Product($advancedSort: String, $category: String) {
+    Product(advancedSort: $advancedSort, category: $category) {
       _id
       title
       image
       description
       category
       price
-      rating{
-        count 
+      rating {
+        count
         rate
       }
     }

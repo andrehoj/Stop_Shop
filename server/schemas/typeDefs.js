@@ -39,7 +39,7 @@ const typeDefs = gql`
 
   type Query {
     User(email: String): [User]
-    Product(_id: ID, category: String): [Product]
+    Product(advancedSort: String, category: String): [Product]
   }
 
   type Mutation {

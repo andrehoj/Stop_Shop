@@ -9,11 +9,57 @@ const resolvers = {
     },
 
     Product: async (parent, args, context, info) => {
-      console.log(args);
-      if (args._id) return Product.find({ _id: args._id });
-      if (args.category && args.category !== "Any")
-        return Product.find({ category: args.category });
-      return Product.find({});
+      if (args.category && args.category !== "any") {
+        const products = await Product.find({ category: args.category });
+
+        switch (args.advancedSort) {
+          case "lowToHigh":
+            products.sort((a, b) => {
+              return a.price - b.price;
+            });
+            return products;
+
+          case "highToLow":
+            products.sort((a, b) => {
+              return b.price - a.price;
+            });
+            return products;
+
+          case "rating":
+            products.sort((a, b) => {
+              return a.rating.rate - b.rating.rate;
+            });
+            return products;
+
+          default:
+            return products;
+        }
+      }
+
+      const products = await Product.find({});
+
+      switch (args.advancedSort) {
+        case "lowTohigh":
+          products.sort((a, b) => {
+            return a.price - b.price;
+          });
+          return products;
+
+        case "highToLow":
+          products.sort((a, b) => {
+            return b.price - a.price;
+          });
+          return products;
+
+        case "rating":
+          products.sort((a, b) => {
+            return a.rating - b.rating;
+          });
+          return products;
+
+        default:
+          return products;
+      }
     },
   },
 

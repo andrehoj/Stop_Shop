@@ -27,7 +27,7 @@ export default function Hero() {
             </span>
           </h5>
           <p className="tracking-wider font-medium">
-            Explore Everything From Clothing, Jewelery And Technology
+            Explore Everything From Clothing, Jewelery To Technology
           </p>
 
           <Link to="/products">

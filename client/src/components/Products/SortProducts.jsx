@@ -1,8 +1,9 @@
 import React from "react";
-import { SORT_PRODUCTS } from "../../utils/actions";
+import { useState } from "react";
+import { ADVANCED_SORT, SORT_PRODUCTS } from "../../utils/actions";
 import { useStoreContext } from "../../utils/globalstate";
 const options = [
-  "Any",
+  "any",
   "men's clothing",
   "jewelery",
   "electronics",
@@ -12,44 +13,64 @@ const options = [
 export default function SortProducts() {
   const [state, dispatch] = useStoreContext();
 
-  const handleChange = (event) => {
+  const [category, setCategory] = useState("any");
+
+  function handleChange({ target }) {
+    setCat(target);
+    handleQuery(target);
+  }
+
+  function setCat({ textContent }) {
+    setCategory(textContent.toLowerCase());
+  }
+
+  function advanceSort({ target }) {
+    dispatch({
+      type: ADVANCED_SORT,
+      cart: { ...state },
+      advancedSort: target.value,
+    });
+  }
+
+  function handleQuery({ textContent }) {
     dispatch({
       type: SORT_PRODUCTS,
       cart: { ...state },
-      sortByCategory: event.target.value,
+      sortByCategory: textContent.toLowerCase(),
     });
-  };
+  }
 
   return (
-    <form className=" border-b border-main_teal">
-      <div className="flex flex-col items-center mb-2">
-        <label htmlFor="Brand text-left" className="">
-          Category
-        </label>
-        <select
-          onChange={handleChange}
-          value={state.sortByCategory}
-          id="underline_select"
-          className="w-36 text-center py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-        >
-          {options.map((option, i) => (
-            <option value={option} defaultValue={option} key={i}>
-              {option}
-            </option>
-          ))}
-        </select>
-        {/* <select
-          placeholder="Brand"
-          id="underline_select"
-          className="w-36 py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-        >
-          <option disabled value={"Size"} defaultValue={"Size"}>
-            Size
-          </option>
-          <option value="Logitech">100%</option>
-          <option value="Keychron">75%</option>
-          <option value="Keychron">50%</option>
-        </select> */}
+    <form className="">
+      <div className="flex flex-col items-center">
+        <div className="flex gap-10 text-sm tracking-wider">
+          <label htmlFor="underline_select" className="sr-only">
+            Sort By
+          </label>
+          <select
+            onChange={advanceSort}
+            id="underline_select"
+            className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+          >
+            <option value="default">Newest</option>
+            <option value="lowToHigh">Sort by price: low to high</option>
+            <option value="highToLow">Sort by price: high to low</option>
+            <option value="rating">Sort by rating</option>
+          </select>
+          {options.map((option, i) => {
+            return (
+              <span
+                key={i}
+                onClick={handleChange}
+                className={`${
+                  option === category && "text-main_teal"
+                } hover:cursor-pointer`}
+              >
+                {option.toUpperCase()}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </form>
   );

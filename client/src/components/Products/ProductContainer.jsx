@@ -7,21 +7,26 @@ import { BarLoader } from "react-spinners";
 import { useStoreContext } from "../../utils/globalstate";
 
 export default function ProductContainer() {
-  const [state, dispatch] = useStoreContext();
+  const [state] = useStoreContext();
 
   const { loading, error, data } = useQuery(GET_PRODUCT, {
-    variables: { category: state.sortByCategory },
+    variables: {
+      category: state.sortByCategory,
+      advancedSort: state.advancedSort,
+    },
   });
-  
-  if (!loading) console.log(data);
+
+  if (error) throw new Error("Error with query");
+
   return (
-    <div className="">
-      <h3 className="text-center my-10 text-main_teal font-extrabold text-5xl tracking-widest ">
+    <>
+      <h3 className="text-center my-10 text-main_teal font-extrabold text-5xl tracking-widest">
         Products
       </h3>
       <div className="flex-col space-y-20 ">
         <SortProducts />
       </div>
+
       {loading ? (
         <div className="flex h-48 w-full justify-center items-center">
           <BarLoader
@@ -33,12 +38,12 @@ export default function ProductContainer() {
           />
         </div>
       ) : (
-        <div className="max-w-5xl grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 m-auto gap-24 my-20">
+        <div className="max-w-5xl grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 m-auto gap-24 mb-20 border-t border-t-main_teal pt-10">
           {data.Product.map((product, i) => (
             <ProductItem product={product} key={i} />
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }

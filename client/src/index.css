@@ -72,6 +72,20 @@
   background-color: #e8e076;
 }
 
+@media only screen and (max-width: 649px) {
+  .custom-border::after {
+    position: relative;
+    content: " ";
+    margin-top: 4px;
+    margin: 0 auto;
+    display: block;
+    height: 7px;
+    border-radius: 5px;
+    width: 175px;
+    background-color: #e8e076;
+  }
+}
+
 .title-text {
   font-size: 5vw;
 }

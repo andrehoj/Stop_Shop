@@ -1,7 +1,7 @@
 import React from "react";
 import NavContainer from "../components/Nav/NavContainer";
 import SectionTwo from "../components/Sections/SectionTwo";
-import SectionThree from "../components/Sections/SectionThree";
+
 import SectionOne from "../components/Sections/SectionOne";
 import Hero from "../components/Sections/Hero";
 import About from "../components/Sections/About";
@@ -12,10 +12,8 @@ export default function Home() {
       <NavContainer />
       <Hero />
       <About />
+      <SectionOne />
       <SectionTwo />
-
-      {/* <SectionOne />
-      <SectionThree /> */}
     </>
   );
 }

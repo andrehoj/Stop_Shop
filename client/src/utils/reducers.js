@@ -4,11 +4,13 @@ import {
   UPDATE_CART_QUANTITY,
   REMOVE_ITEM_FROM_CART,
   SORT_PRODUCTS,
+  ADVANCED_SORT,
 } from "../utils/actions";
 
 //custom reducer function
 //state the previous state we ...spread and action has the type key and cart key
 export function reducer(state, action) {
+  console.log(action)
   switch (action.type) {
     case ADD_TO_CART:
       return {
@@ -41,6 +43,12 @@ export function reducer(state, action) {
         ...state,
         sortByCategory: action.sortByCategory,
       };
+    case ADVANCED_SORT:
+      return {
+        ...state,
+        advancedSort: action.advancedSort,
+      };
+
     default:
       return state;
   }

@@ -27,7 +27,7 @@ export default function NavLinks() {
           </Link>
 
           <Link to="/Registration/signup">
-            <button class=" ml-3 bg-transparent font-semibold text-main_teal hover:bg-main_teal hover:text-main_white py-1.5 px-3.5 border border-main_teal hover:border-transparent rounded nav-link-styles">
+            <button className=" ml-3 bg-transparent font-semibold text-main_teal hover:bg-main_teal hover:text-main_white py-1.5 px-3.5 border border-main_teal hover:border-transparent rounded nav-link-styles">
               Signup
             </button>
           </Link>
