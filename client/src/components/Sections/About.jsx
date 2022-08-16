@@ -12,7 +12,7 @@ export default function About() {
 
           <p className="tracking-wide">
             Stop Shop is an Ecommerce site that sells a variety of products
-            ranging for clothing all the way to technology. We Prodive high
+            ranging for clothing all the way to technology. We Provide high
             quality products across the board. With our easy to navigate site
             you can have your orders at your door in no time.
           </p>

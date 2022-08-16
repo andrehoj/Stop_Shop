@@ -1,15 +1,13 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
 import { useParams } from "react-router-dom";
 import NavContainer from "../Nav/NavContainer";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCT } from "../../utils/queries";
 import { BarLoader } from "react-spinners";
-import { Accordion } from "flowbite-react";
-import { GrCircleInformation } from "react-icons/gr";
-import { AiOutlineSafety } from "react-icons/ai";
-import { GiSpectacles } from "react-icons/gi";
+import { GiReturnArrow } from "react-icons/gi";
+import { GoGlobe } from "react-icons/go";
+import { BsGift } from "react-icons/bs";
 import { useStoreContext } from "../../utils/globalstate";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 
@@ -64,25 +62,21 @@ export default function ProductDetails() {
   return (
     <>
       <NavContainer />
-      <div className="grid grid-cols-1 lg:grid-cols-2 justify-center space-x-5 lg:mr-32 mt-10 lg:ml-2 mx-10">
-        {/* <Carousel renderIndicator={false}> */}
-        <div>
-          <img src={`${product.image}`} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-x-52 my-10 mx-20">
+        <div className="flex justify-end items-end">
+          <img src={`${product.image}`} className="" />
         </div>
-        {/* {product.images?.map((image, i) => (
-            <div key={i}>
-              <img src={`/images/${image}`} alt="cover of Keyboard" />
-            </div>
-          ))} */}
-        {/* </Carousel> */}
 
-        <div className="flex-col space-y-5 w-96 mb-28 lg:mb-0 ">
-          <div className="flex-col space-y-1">
-            <h6>{product.brand}</h6>
-            <h4 className="text-xl">{product.title}</h4>
-            <p className="font-semibold text-lg">${product.price}</p>
+        <div className="flex-col space-y-5 lg:mb-0 ">
+          <div className="flex-col space-y-1 border-b border-main_teal">
+            <h4 className="text-xl tracking-widest font-extralight ">
+              {product.title}
+            </h4>
+            <p className="font-light text-lg pb-3">${product.price}</p>
           </div>
-          <p>{product.description}</p>
+          <p className="text-base tracking-wide font-extralight">
+            {product.description}
+          </p>
           <div className="flex items-center">
             {[...Array(parseInt(product.rating.rate))].map((item, i) => (
               <svg
@@ -97,57 +91,28 @@ export default function ProductDetails() {
               </svg>
             ))}
           </div>
-          <div className="">
-            <p
-              className={`${
-                product.inStock ? "text-success" : "text-danger"
-              } mb-1 text-sm `}
-            >
-              {product.inStock ? "In stock, ready to ship" : "Out of stock"}
-            </p>
+          <div className="pb-2 flex">
             <button
               onClick={handleAddCart}
               className={`${
                 product
-                  ? " bg-transparent hover:bg-main_teal text-main_teal font-semibold hover:text-main_white py-2 px-12 border border-main_teal hover:border-transparent duration-200 "
+                  ? "w-full rounded-3xl bg-transparent hover:bg-main_teal text-main_teal font-semibold hover:text-main_white py-2 px-12 border border-main_teal hover:border-transparent duration-200 "
                   : " py-2 px-12 border border-main_teal  bg-transparent text-main_teal font-semibold opacity-75 cursor-not-allowed line-through disabled "
               } `}
             >
               Add to cart
             </button>
-            <Accordion
-              style={{ border: "none", fontSize: "20px", marginTop: "20px" }}
-            >
-              <Accordion.Panel>
-                <Accordion.Title style={{ padding: 0 }}>
-                  {" "}
-                  <GrCircleInformation style={{ display: "inline" }} /> Details
-                </Accordion.Title>
-
-                <Accordion.Content>
-                  <p className="p-3 text-sm">Content</p>
-                </Accordion.Content>
-              </Accordion.Panel>
-
-              <Accordion.Panel>
-                <Accordion.Title style={{ marginTop: "10px", padding: 0 }}>
-                  <GiSpectacles style={{ display: "inline" }} />
-                  Specs
-                </Accordion.Title>
-                <Accordion.Content>
-                  <p className="p-3 text-sm">Content</p>
-                </Accordion.Content>
-              </Accordion.Panel>
-              <Accordion.Panel>
-                <Accordion.Title style={{ marginTop: "10px", padding: 0 }}>
-                  <AiOutlineSafety style={{ display: "inline" }} />
-                  Warrenty
-                </Accordion.Title>
-                <Accordion.Content>
-                  <p className="p-3 text-sm">Content</p>
-                </Accordion.Content>
-              </Accordion.Panel>
-            </Accordion>
+          </div>
+          <div className="flex justify-center gap-10 items-center border-b border-main_teal pb-2 text-center">
+            <div className="flex flex-col items-center font-light tracking-wide ">
+              <GoGlobe size={30} /> Free Shipping
+            </div>{" "}
+            <div className="flex flex-col items-center">
+              <GiReturnArrow size={30} /> Easy Returns
+            </div>{" "}
+            <div className="flex flex-col items-center">
+              <BsGift size={30} /> Free Shipping
+            </div>
           </div>
         </div>
       </div>

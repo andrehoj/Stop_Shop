@@ -20,10 +20,7 @@ export default function ProductContainer() {
 
   return (
     <>
-      <h3 className="text-center my-10 text-main_teal font-extrabold text-5xl tracking-widest">
-        Products
-      </h3>
-      <div className="flex-col space-y-20 ">
+      <div className="flex-col space-y-20   ">
         <SortProducts />
       </div>
 
@@ -38,7 +35,7 @@ export default function ProductContainer() {
           />
         </div>
       ) : (
-        <div className="max-w-5xl grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 m-auto gap-24 mb-20 border-t border-t-main_teal pt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 my-10 justify-center items-center max-w-7xl m-auto">
           {data.Product.map((product, i) => (
             <ProductItem product={product} key={i} />
           ))}

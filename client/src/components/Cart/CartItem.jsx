@@ -29,8 +29,10 @@ export default function CartItem({ item }) {
     });
   }
 
+  console.log(item)
+
   return (
-    <div className="flex flex-wrap mt-3 pb-3 border-b">
+    <div className="flex flex-wrap mt-3 pb-3 border-b ">
       <div className="">
         <img
           src={`${item.image}`}
@@ -38,8 +40,8 @@ export default function CartItem({ item }) {
           className="min-h-20 w-36"
         />
       </div>
-      <div className="flex-col space-y-2">
-        <h4 className="text-xl">{item.name}</h4>
+      <div className="flex-col space-y-2 space-x-4">
+        <h4 className="text-sm">{item.title}</h4>
         <p>${item.price}</p>
 
         <div className="">

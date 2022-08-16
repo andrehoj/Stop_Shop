@@ -9,6 +9,9 @@ const resolvers = {
     },
 
     Product: async (parent, args, context, info) => {
+      console.log(args)
+      if (args._id) return Product.find({ _id: args._id });
+
       if (args.category && args.category !== "any") {
         const products = await Product.find({ category: args.category });
 
@@ -39,7 +42,7 @@ const resolvers = {
       const products = await Product.find({});
 
       switch (args.advancedSort) {
-        case "lowTohigh":
+        case "lowToHigh":
           products.sort((a, b) => {
             return a.price - b.price;
           });
@@ -53,8 +56,9 @@ const resolvers = {
 
         case "rating":
           products.sort((a, b) => {
-            return a.rating - b.rating;
+            return a.rating.rate - b.rating.rate;
           });
+          console.log(products)
           return products;
 
         default:
@@ -66,7 +70,7 @@ const resolvers = {
   Mutation: {
     addUser: async (parent, args, context, info) => {
       const userEmail = await User.find({ email: args.email });
-      console.log(userEmail);
+
       if (userEmail.length) throw new AuthenticationError("Email is taken");
 
       const user = await User.create(args);
@@ -77,7 +81,7 @@ const resolvers = {
     },
 
     login: async (parent, { email, password }, context, info) => {
-      const user = User.find({ email });
+      const user = await User.find({ email });
 
       if (!user) throw new AuthenticationError("Incorrect Credentials");
 

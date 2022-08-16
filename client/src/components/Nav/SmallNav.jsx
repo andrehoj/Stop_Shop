@@ -6,17 +6,16 @@ export default function SmallNav() {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <div className="mr-6">
-      <Hamburger
-        duration={0.6}
-        label="Show menu"
-        toggled={isOpen}
-        toggle={setOpen}
-      />
-      {isOpen && <div className="absolute flex right-10"><NavLinks /></div>}
-    </div>
+    <>
+      <div className="mr-6">
+        <Hamburger
+          duration={0.6}
+          label="Show menu"
+          toggled={isOpen}
+          toggle={setOpen}
+        />
+      </div>
+      <div className="min-h-screen absolute top-0 right-0 mt-20">{isOpen && <NavLinks isTablet={true}/>}</div>
+    </>
   );
-}
-
-{
 }

@@ -3,12 +3,18 @@ import { BsCart3 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../../utils/globalstate";
 import Auth from "../../utils/auth";
+import "flowbite";
+import "flowbite-react";
 
-export default function NavLinks() {
+export default function NavLinks({ isTablet }) {
   const [{ cart }] = useStoreContext();
 
   return (
-    <ul className="h-full items-center flex gap-8">
+    <ul
+      className={`${
+        isTablet && "flex-col"
+      } h-full items-center flex gap-8 bg-main_white`}
+    >
       <Link to="/home">
         <li className="nav-link-styles">Home</li>
       </Link>
@@ -36,7 +42,7 @@ export default function NavLinks() {
 
       <li className="h-full">
         <Link to="/cart">
-          <div className="group h-full px-20 bg-main_teal hover:cursor-pointer ">
+          <div className={`${isTablet && "py-10"} group h-full px-20 bg-main_teal hover:cursor-pointer`}>
             <div className="group-hover:-translate-y-1 group-hover:scale-110 duration-300 h-full flex items-center">
               <BsCart3 size={24} className="mr-1 " />
               Cart
