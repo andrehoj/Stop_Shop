@@ -75,12 +75,16 @@ export default function Cart() {
           </p>
 
           {Auth.loggedIn() ? (
-            <button
-              type="button"
-              className="mb-5 bg-success hover:bg-opacity-80 text-main_white tracking-widest py-2 px-4 rounded mt-5"
-            >
-              Check out
-            </button>
+            products.length ? (
+              <button
+                type="button"
+                className="mb-5 bg-success hover:bg-opacity-80 text-main_white tracking-widest py-2 px-4 rounded mt-5"
+              >
+                Check out
+              </button>
+            ) : (
+              <div className="p-2">Add products to you cart to checkout</div>
+            )
           ) : (
             <button
               type="button"

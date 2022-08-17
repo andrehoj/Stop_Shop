@@ -31,6 +31,7 @@ export default function ProductDetails() {
       dispatch({
         type: ADD_TO_CART,
         cart: { purchaseQuantity: 1, ...product },
+        showCart: true,
       });
     }
   }

@@ -7,18 +7,18 @@ import Login from "../components/Login";
 export default function Registration() {
   const { type } = useParams();
   return (
-    <section className="h-screen flex justify-center lg:justify-start lg:space-x-20">
+    <section className="h-screen flex justify-center text-center lg:text-start lg:justify-start lg:space-x-20">
       <div className=" hidden lg:block login-img"></div>
 
-      <div className="mt-5">
+      <div className="l">
         <Link
           to="/home"
-          className=" flex underline text-main_teal hover:no-underline "
+          className="flex  items-center my-5 text-main_teal "
         >
-          <AiOutlineArrowLeft className="mt-1 mr-1" />{" "}
-          <p className="mb-8">Back to Home</p>
+          <AiOutlineArrowLeft className="" />{" "}
+          <p className="">Back to Home</p>
         </Link>
-        <div className="flex items-center justify-center flex-wrap g-6 ">
+        <div className="f">
           {type === "signup" ? <Signup /> : <Login />}
         </div>
       </div>

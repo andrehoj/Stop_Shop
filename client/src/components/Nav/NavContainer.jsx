@@ -3,6 +3,7 @@ import LargeNav from "./LargeNav";
 import SmallNav from "./SmallNav";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
+import CartPopUp from "../CartPopUp";
 
 export default function NavContainer() {
   const isTablet = useMediaQuery({
@@ -18,6 +19,7 @@ export default function NavContainer() {
       </Link>
 
       {isTablet ? <LargeNav /> : <SmallNav />}
+      <CartPopUp />
     </nav>
   );
 }
