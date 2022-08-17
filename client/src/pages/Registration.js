@@ -10,17 +10,11 @@ export default function Registration() {
     <section className="h-screen flex justify-center text-center lg:text-start lg:justify-start lg:space-x-20">
       <div className=" hidden lg:block login-img"></div>
 
-      <div className="l">
-        <Link
-          to="/home"
-          className="flex  items-center my-5 text-main_teal "
-        >
-          <AiOutlineArrowLeft className="" />{" "}
-          <p className="">Back to Home</p>
+      <div className="">
+        <Link to="/home" className="flex items-center my-5 text-main_teal ">
+          <AiOutlineArrowLeft className="" /> <p className="">Back to Home</p>
         </Link>
-        <div className="f">
-          {type === "signup" ? <Signup /> : <Login />}
-        </div>
+        <div className="">{type === "signup" ? <Signup /> : <Login />}</div>
       </div>
     </section>
   );

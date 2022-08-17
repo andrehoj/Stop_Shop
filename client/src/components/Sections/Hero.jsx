@@ -1,23 +1,21 @@
 import React from "react";
-import Slider from "../Products/Slider";
 import { Link } from "react-router-dom";
 
-//look into different libaries for carousel
-//swipers height and width always default to 33 million px not sure if its meant to be responsive or just for mobile use
-
-const imageLinks = [
-  "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-  "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
-  "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
-];
+// const imageLinks = [
+//   "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+//   "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+//   "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
+// ];
 
 export default function Hero() {
   return (
     <div className="p-10 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 sm:space-x-7">
         <div className="justify-self-center order-2 sm:order-1">
-          <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" alt="" />
-          {/* <Slider imageLinks={imageLinks} /> */}
+          <img
+            src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+            alt=""
+          />
         </div>
         <div className=" flex flex-col space-y-2 justify-center mb-10 sm:mb-20 text-center sm:text-start order-1 sm:order-2">
           <h5 className="font-extrabold text-6xl sm:text-4xl md:text-5xl lg:text-7xl">

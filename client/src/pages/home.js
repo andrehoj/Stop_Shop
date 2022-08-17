@@ -18,9 +18,9 @@ export default function Home() {
   );
 }
 
-{
+
   /* <AiOutlineArrowDown
 size={36}
 className="scroll_down_arrow animate-bounce bg-main_teal rounded-full"
 /> */
-}
+
