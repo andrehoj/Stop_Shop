@@ -8,7 +8,7 @@ fetch("https://fakestoreapi.com/products?limit=50")
   })
   .then((products) => {
     mongoose
-      .connect("mongodb://127.0.0.1:27017/MERN_Products", {
+      .connect( process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/MERN_Products", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
