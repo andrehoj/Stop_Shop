@@ -8,12 +8,18 @@ fetch("https://fakestoreapi.com/products?limit=50")
   })
   .then((products) => {
     mongoose
-      .connect( process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/MERN_Products", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      })
+      .connect(
+        process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/MERN_Products",
+        {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        }
+      )
       .then(() => {
         console.log("MONGODB seeding process started!");
+        seedDB().then(() => {
+          mongoose.connection.close();
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -47,10 +53,6 @@ fetch("https://fakestoreapi.com/products?limit=50")
         },
       ]);
     };
-
-    seedDB().then(() => {
-      mongoose.connection.close();
-    });
   });
 
 // })
