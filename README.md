@@ -26,4 +26,4 @@ Mongodb
 
 Mongoose
 
-![https://stop-shop123.herokuapp.com/](https://stop-shop123.herokuapp.com/)
+![./public/Stop_Shop_image.png](./public/Stop_Shop_image.png)
