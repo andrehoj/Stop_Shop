@@ -14,15 +14,14 @@ const server = new ApolloServer({
   context: authMidWare,
 });
 
-
-const app = express(express.urlencoded({ extended: true }));
+const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
 }
-
 
 async function startApolloServer(typeDefs, resolvers) {
   await server.start();
@@ -38,4 +37,3 @@ async function startApolloServer(typeDefs, resolvers) {
 }
 
 startApolloServer(typeDefs, resolvers);
-

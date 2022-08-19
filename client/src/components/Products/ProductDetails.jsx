@@ -17,8 +17,6 @@ export default function ProductDetails() {
   const { cart } = state;
 
   function handleAddCart() {
-    // if (!product.inStock) return;
-
     const productItem = cart.find((item) => item._id === product._id);
 
     if (productItem) {
@@ -65,7 +63,7 @@ export default function ProductDetails() {
       <NavContainer />
       <div className="grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-x-52 my-10 mx-20">
         <div className="flex justify-end items-end">
-          <img src={`${product.image}`} alt="product cover"/>
+          <img src={`${product.image}`} alt="product cover" />
         </div>
 
         <div className="flex-col space-y-5 lg:mb-0 ">
