@@ -8,13 +8,10 @@ fetch("https://fakestoreapi.com/products?limit=50")
   })
   .then((products) => {
     mongoose
-      .connect(
-        process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/MERN_Products",
-        {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-        }
-      )
+      .connect("mongodb://127.0.0.1:27017/MERN_Products", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
       .then(() => {
         console.log("MONGODB seeding process started!");
         seedDB().then(() => {
@@ -25,7 +22,7 @@ fetch("https://fakestoreapi.com/products?limit=50")
         console.log(err);
       });
 
-    const seedDB = async () => {
+    async function seedDB() {
       await Product.deleteMany();
       await User.deleteMany();
 
@@ -52,7 +49,7 @@ fetch("https://fakestoreapi.com/products?limit=50")
           password: "password",
         },
       ]);
-    };
+    }
   });
 
 // })
