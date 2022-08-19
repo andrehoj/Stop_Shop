@@ -26,4 +26,4 @@ Mongodb
 
 Mongoose
 
-![./public/Stop_Shop_image.png](./public/Stop_Shop_image.png)
+![/client/public/images/Stop_Shop_image.png](/client/public/images/Stop_Shop_image.png)
