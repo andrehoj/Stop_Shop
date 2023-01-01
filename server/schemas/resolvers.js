@@ -57,7 +57,6 @@ const resolvers = {
           products.sort((a, b) => {
             return a.rating.rate - b.rating.rate;
           });
-          console.log(products);
           return products;
 
         default:
@@ -94,8 +93,7 @@ const resolvers = {
 
       const correctPw = await user.isCorrectPassword(password);
 
-      if (!correctPw)
-        throw new AuthenticationError("Incorrect Credentials");
+      if (!correctPw) throw new AuthenticationError("Incorrect Credentials");
 
       const token = signToken(user);
 

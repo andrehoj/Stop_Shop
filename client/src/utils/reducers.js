@@ -11,7 +11,6 @@ import {
 //custom reducer function
 //state the previous state we ...spread and action has the type key and cart key
 export function reducer(state, action) {
-  console.log(action);
   switch (action.type) {
     case ADD_TO_CART:
       return {

@@ -6,7 +6,6 @@ import Auth from "../utils/auth";
 
 export default function Signup() {
   const [addUser, { data, loading, error }] = useMutation(ADD_USER);
-  console.log(error);
   const [errorMessage, setErrorMessage] = useState("");
 
   const [htmlFormData, sethtmlFormData] = useState({
@@ -27,9 +26,7 @@ export default function Signup() {
         lastName: htmlFormData.lastName,
       },
     });
-    console.log(data, error, loading);
 
-    console.log(mutationResponse, "this is the mutation response");
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   }
@@ -131,9 +128,7 @@ export default function Signup() {
           {error && (
             <div className="w-full text-danger border-b border-danger p-2">
               <div>
-                <p className="error-text">
-                Email is taken
-                </p>
+                <p className="error-text">Email is taken</p>
               </div>
             </div>
           )}

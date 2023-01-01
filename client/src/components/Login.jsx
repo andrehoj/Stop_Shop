@@ -7,7 +7,7 @@ import { LOG_IN } from "../utils/mutations";
 export default function Login() {
   const [logIn, { error }] = useMutation(LOG_IN);
 
-  const [formError, setFormError] = useState("");
+  const [formError, setFormError] = useState(null);
 
   const [formData, setformData] = useState({
     email: "",
